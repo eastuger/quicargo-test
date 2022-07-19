@@ -6,6 +6,9 @@
         "url": "https://github.com/tiagoajacobi/base-nodejs-express-gulp-project"
     },
     "description": "Nodejs webserver bootstrap with express and gulp",
+    "scripts": {
+        "test": "mocha --config test/runners/mocha/.mocharc.jsonc"
+    },
     "author": "Quicargo LTD",
     "license": "ISC",
     "engines": {
@@ -29,15 +32,18 @@
         "@types/body-parser": "^1.19.2",
         "@types/chai": "^4.3.1",
         "@types/express": "^4.17.13",
-        "@types/mocha": "^9.1.0",
+        "@types/mocha": "^9.1.1",
         "@types/node": "^17.0.45",
         "@types/validator": "^13.7.4",
         "chai": "^4.3.6",
         "del": "^6.0.0",
         "gulp": "^4.0.2",
         "gulp-cli": "^2.3.0",
+        "gulp-mocha": "^8.0.0",
         "gulp-nodemon": "^2.5.0",
         "gulp-typescript": "^5.0.1",
+        "mocha": "^10.0.0",
+        "ts-node": "^10.9.1",
         "typescript": "^4.6.3"
     }
 }

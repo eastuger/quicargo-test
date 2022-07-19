@@ -1,7 +1,7 @@
 
-function degToRad(degrees)
+export function degToRad(degrees)
 {
-    return degrees * (Math.PI/180);
+    return parseFloat((degrees * (Math.PI/180)).toFixed(4))
 }
 
 export function getDistance(lat1, lng1, lat2, lng2): number {
@@ -12,5 +12,5 @@ export function getDistance(lat1, lng1, lat2, lng2): number {
     distance = degToRad(distance)
     distance = distance * 60 * 1.1515
 
-    return Math.round((distance * distance * 1.609344))
+    return parseFloat((distance * distance * 1.609344).toFixed(3))
 }
