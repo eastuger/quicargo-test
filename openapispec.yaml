@@ -3,6 +3,8 @@ info:
   title: quicargo-test
   description: hiring test for quicargo
   version: 1.0.0
+servers:
+  - url: http://localhost:3000/api
 
 paths:
   /trucks/{id}:

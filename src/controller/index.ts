@@ -32,7 +32,7 @@ router.put('/trucks/:truck_id', async (req: express.Request, res: express.Respon
 
 });
 
-router.get('/carriers/:carrier_id/trucks', async (req: express.Request, res: express.Response) => {
+router.post('/carriers/:carrier_id/trucks', async (req: express.Request, res: express.Response) => {
     try {
         let distances = []
 
