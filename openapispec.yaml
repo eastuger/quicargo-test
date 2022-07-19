@@ -24,6 +24,13 @@ paths:
           schema:
             type: integer
             format: int64
+      requestBody:
+        description: Truck data
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Truck'
       responses:
         204:
           description: Truck has been updated successfully
@@ -31,7 +38,7 @@ paths:
           description: not found
 
   /carriers/{carrier_id}/trucks:
-    get:
+    post:
       summary: Get all available trucks within radius of pickup point
       operationId: getAvailableTrucks
       tags:
@@ -40,12 +47,6 @@ paths:
         - name: carrier_id
           in: path
           required: true
-          schema:
-            type: integer
-            format: int64
-        - name: radius
-          in: query
-          required: false
           schema:
             type: integer
             format: int64
@@ -76,22 +77,31 @@ components:
           type: object
           properties:
             pickup:
-              type: object
-              properties:
-                lat:
-                  type: number
-                lng:
-                  type: number
+              $ref: '#/components/schemas/Location'
             delivery:
-              type: object
-              properties:
-                lat:
-                  type: number
-                lng:
-                  type: number
+              $ref: '#/components/schemas/Location'
         cargo_weight:
           type: number
         cargo_amount:
+          type: number
+      example:
+        radius: 2
+        cargo_weight: 200.00
+        cargo_amount: 100
+        route:
+          pickup:
+            lng: 4.895168
+            lat: 52.370216
+          delivery:
+            lng: 4.895168
+            lat: 52.370216
+
+    Location:
+      type: object
+      properties:
+        lat:
+          type: number
+        lng:
           type: number
 
     Truck:
@@ -113,3 +123,12 @@ components:
           type: number
         carrier_id:
           type: number
+      example:
+        lng: 4.895168
+        lat: 52.370216
+        licensplate: "234ASF"
+        max_weight: 1000.00
+        current_weight: 500.00
+        max_pallets: 200
+        current_pallets: 150
+        carrier_id: 1
