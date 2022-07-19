@@ -9,7 +9,7 @@ import {Sequelize} from "sequelize-typescript";
 import {Carrier} from "./models/Carrier";
 import {Truck} from "./models/Truck";
 
-const app = express();
+export const app = express();
 
 export const logger = winston.createLogger({
     level: 'info',
@@ -28,6 +28,7 @@ export const logger = winston.createLogger({
 });
 
 const sequelize = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
+    host: "db",
     logging: logger.debug.bind(logger),
     dialect: "postgres",
     port: 5432,

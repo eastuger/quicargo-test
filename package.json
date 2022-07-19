@@ -7,7 +7,8 @@
     },
     "description": "Nodejs webserver bootstrap with express and gulp",
     "scripts": {
-        "test": "mocha --config test/runners/mocha/.mocharc.jsonc"
+        "test": "mocha --config test/runners/mocha/.mocharc.jsonc",
+        "start": "gulp start"
     },
     "author": "Quicargo LTD",
     "license": "ISC",
@@ -17,6 +18,7 @@
     "dependencies": {
         "@types/compression": "^1.7.2",
         "@types/method-override": "^0.0.32",
+        "chai-http": "^4.3.0",
         "color-string": "^1.9.0",
         "compression": "^1.7.4",
         "express": "^4.17.3",

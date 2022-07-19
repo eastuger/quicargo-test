@@ -1,12 +1,12 @@
-# base-nodejs-express-gulp-project
+# Egbert Stuger quicargo hiring test
 
 ## Requirements
 - [NodeJs](https://nodejs.org/) >=v16.14.1
 - [Gulp](https://gulpjs.com/) build system: `npm install gulp-cli --global`
+- [Docker docker-compose](https://www.docker.com/get-started/) 
+
+## Open api spec
+- Import openapispec.yaml as documentation into postman 
 
 ## How to start
-- Run `npm install` to install all project dependencies from npm
-- Run `gulp clean` to clean build folder
-- Run `gulp build` to clean and build the project
-- Run `gulp start` to clean, build and start the server
-
+- docker-compose up
