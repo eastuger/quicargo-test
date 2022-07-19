@@ -24,13 +24,6 @@ paths:
           schema:
             type: integer
             format: int64
-      requestBody:
-        description: Truck data
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Truck'
       responses:
         204:
           description: Truck has been updated successfully
@@ -71,7 +64,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Truck'
+                  type: object
 components:
   schemas:
     Order:
@@ -104,9 +97,6 @@ components:
     Truck:
       type: object
       properties:
-        id:
-          type: integer
-          format: int64
         lng:
           type: number
         lat:
