@@ -1,4 +1,6 @@
-node_modules/
-typings/
+wwwroot/*.js
+node_modules
+typings
 .dist/
-package-lock.json
+.idea/
+logs/

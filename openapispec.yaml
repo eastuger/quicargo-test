@@ -1,0 +1,125 @@
+openapi: 3.0.0
+info:
+  title: quicargo-test
+  description: hiring test for quicargo
+  version: 1.0.0
+
+paths:
+  /trucks/{id}:
+    put:
+      summary: Update the system about truck information
+      operationId: updateTrucks
+      tags:
+        - truck
+      parameters:
+        - name: carrier_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: truck_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        description: Truck data
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Truck'
+      responses:
+        204:
+          description: Truck has been updated successfully
+        404:
+          description: not found
+
+  /carriers/{carrier_id}/trucks:
+    get:
+      summary: Get all available trucks within radius of pickup point
+      operationId: getAvailableTrucks
+      tags:
+        - truck
+      parameters:
+        - name: carrier_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: radius
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        description: Order data
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+      responses:
+        200:
+          description: trucks received successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Truck'
+components:
+  schemas:
+    Order:
+      type: object
+      properties:
+        radius:
+          type: number
+        route:
+          type: object
+          properties:
+            pickup:
+              type: object
+              properties:
+                lat:
+                  type: number
+                lng:
+                  type: number
+            delivery:
+              type: object
+              properties:
+                lat:
+                  type: number
+                lng:
+                  type: number
+        cargo_weight:
+          type: number
+        cargo_amount:
+          type: number
+
+    Truck:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        lng:
+          type: number
+        lat:
+          type: number
+        license_plate:
+          type: string
+        max_weight:
+          type: number
+        current_weight:
+          type: number
+        max_pallets:
+          type: number
+        current_pallets:
+          type: number
+        carrier_id:
+          type: number
