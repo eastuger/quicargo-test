@@ -1,10 +1,9 @@
 
-export function degToRad(degrees)
-{
+export function degToRad(degrees: number): number {
     return parseFloat((degrees * (Math.PI/180)).toFixed(4))
 }
 
-export function getDistance(lat1, lng1, lat2, lng2): number {
+export function getDistance(lat1: number, lng1: number, lat2: number, lng2: number): number {
     const theta = lng1 - lng2
     let distance = Math.sin(degToRad(lat1)) * Math.sin(degToRad(lat2)) + Math.cos(degToRad(lat1)) * Math.cos(degToRad(lat2)) * Math.cos(theta)
 
